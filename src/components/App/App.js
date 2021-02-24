@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './App.scss';
 import Creator from '../Creator/Creator.js';
 import List from '../List/List.js';
+import PropTypes from 'prop-types';
 import { pageContents, listData, settings } from '../../data/dataStore';
 
 class App extends React.Component {
@@ -9,6 +10,9 @@ class App extends React.Component {
     list: this.props.listData || [],
   }
 
+  static propTypes = {
+    listData: PropTypes.array,
+  }
   addList(title) {
     this.setState(state => (
       {
@@ -18,9 +22,9 @@ class App extends React.Component {
             key: state.list.length ? state.list[state.list.length - 1].key + 1 : 0,
             title,
             image: listData.image,
-            columns: []
-          }
-        ]
+            columns: [],
+          },
+        ],
       }
     ));
   }
@@ -40,7 +44,7 @@ class App extends React.Component {
           <Creator text={settings.listCreatorText} action={title => this.addList(title)} />
         </div>
       </main>
-    )
+    );
   }
 }
 

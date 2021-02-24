@@ -15,6 +15,7 @@ class Column extends React.Component {
     creatorClass: PropTypes.string,
     creatorText: PropTypes.string,
     iconName: PropTypes.string,
+    cards: PropTypes.array,
   }
 
   addCard(title){
@@ -26,8 +27,8 @@ class Column extends React.Component {
             key: state.cards.length ? state.cards[state.cards.length-1].key+1 : 0,
             title,
             icon: 'list-alt',
-          }
-        ]
+          },
+        ],
       }
     ));
   }
@@ -43,7 +44,7 @@ class Column extends React.Component {
           <Creator text={this.props.creatorText} action={title => this.addCard(title)} />
         </div>
       </section>
-    )
+    );
   }
 }
 
