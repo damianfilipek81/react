@@ -10,7 +10,6 @@ class Column extends React.Component {
 
   static propTypes = {
     title: PropTypes.string,
-    creatorClass: PropTypes.string,
     creatorText: PropTypes.string,
     icon: PropTypes.string,
     cards: PropTypes.array,
@@ -29,7 +28,7 @@ class Column extends React.Component {
         {cards.map( cardData  => (
           <Card key={cardData.id} {...cardData} />
         ))}
-        <div className={this.props.creatorClass}>
+        <div className={styles.creator}>
           <Creator text={this.props.creatorText} action={addCard}/>
         </div>
       </section>

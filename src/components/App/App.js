@@ -3,9 +3,8 @@ import styles from './App.scss';
 import Creator from '../Creator/Creator.js';
 import List from '../List/ListContainer.js';
 import PropTypes from 'prop-types';
-import settings from '../../data/dataStore';
+import {settings} from '../../data/dataStore';
 import Search from '../Search/SearchContainer.js';
-import searchStyles from '../Search/Search.scss';
 
 class App extends React.Component {
 
@@ -23,12 +22,14 @@ class App extends React.Component {
         <div className={styles.component}>
           <h1 className={styles.title}>{title}</h1>
           <h2 className={styles.subtitle}>{subtitle}</h2>
-          <Search className={searchStyles.component} />
+          <div className={styles.component}>
+            <Search/>
+          </div>
           {lists.map(listData => (
             <List key={listData.id} {...listData} />
           ))}
         </div>
-        <div className={styles.component}>
+        <div>
           <Creator text={settings.listCreatorText} action={addList} />
         </div>
       </main>

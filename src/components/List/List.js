@@ -32,7 +32,6 @@ class List extends React.Component {
         <div className={styles.columns}>
           {columns.map(columnData => (
             <Column key={columnData.id} {...columnData}
-              creatorClass={styles.creator}
               creatorText={settings.cardCreatorText}/>
           ))}
         </div>
