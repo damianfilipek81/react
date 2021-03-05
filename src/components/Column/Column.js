@@ -8,11 +8,12 @@ import { settings } from '../../data/dataStore.js';
 
 const Column = props => {
   const { title, cards, icon, addCard, creatorText } = props;
+  
   return (
     <section className={styles.component}>
       <h3 className={styles.title}>{title} <span className={styles.icon}><Icon name={icon} /></span></h3>
       {cards.map(cardData => (
-        <Card key={cardData.id} {...cardData} />
+        <Card key={cardData.id} {...cardData} id={cardData.id} />
       ))}
       <div className={styles.creator}>
         <Creator text={creatorText} action={addCard} />
