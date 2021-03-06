@@ -7,7 +7,7 @@ const Card = props => {
   const { title, idDom, index, id } = props;
 
   return (
-    <Draggable draggableId={id} index={index}>
+    <Draggable draggableId={id} index={index} >
       {(provided) => (
         <article
           className={styles.component}

@@ -12,7 +12,7 @@ const Column = props => {
   return (
     <section className={styles.component}>
       <h3 className={styles.title}>{title} <span className={styles.icon}><Icon name={icon} /></span></h3>
-      <Droppable droppableId={id}>
+      <Droppable droppableId={id} >
         {provided => (
           <div {...provided.droppableProps} ref={provided.innerRef} className={styles.cards}>
             {cards.map(cardData => (

@@ -1,7 +1,7 @@
 import shortid from 'shortid';
 
 // selectors
-export const getCardsForColumn = ({ cards }, columnId) => cards.filter(card => card.columnId == columnId);
+export const getCardsForColumn = ({ cards }, columnId) => cards.filter(card => card.columnId == columnId).sort((a, b) => (a.index > b.index) ? 1 : -1);
 //export const getCardsForColumn = ({cards, searchString}, columnId) => cards.filter(card => card.columnId == columnId && new RegExp(searchString, 'i').test(card.title));
 // action name creator
 const reducerName = 'cards';
@@ -18,8 +18,18 @@ export const createAction_moveCard = payload => ({ payload: { ...payload }, type
 // reducer
 export default function reducer(statePart = [], action = {}) {
   switch (action.type) {
-    case ADD_CARDS:
-      return [...statePart, action.payload];
+    case ADD_CARDS: {
+      const filteredCards = statePart.filter(card => card.columnId == action.payload.columnId);
+      const lastCard = filteredCards[filteredCards.length - 1];
+      const newIndex = lastCard ? lastCard.index + 1 : 0;
+      const newCard = {
+        ...action.payload,
+        index: newIndex,
+      };
+      return [...statePart, newCard];
+    }
+    default:
+      return statePart;
     case MOVE_CARD: {
       const { id, src, dest } = action.payload;
       const targetCard = statePart.filter(card => card.id == id)[0];
@@ -68,7 +78,5 @@ export default function reducer(statePart = [], action = {}) {
         });
       }
     }
-    default:
-      return statePart;
   }
 }
