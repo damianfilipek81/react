@@ -63,7 +63,7 @@ class App extends React.Component {
             ))}
           </DragDropContext>
         </div>
-        <div>
+        <div className={styles.creator}>
           <Creator text={settings.listCreatorText} action={addList} />
         </div>
       </main>

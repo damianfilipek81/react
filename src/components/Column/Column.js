@@ -22,7 +22,7 @@ const Column = props => {
           </div>
         )}
       </Droppable>
-      <div className={styles.creator}>
+      <div className={styles.cards}>
         <Creator text={creatorText} action={addCard} />
       </div>
     </section>
