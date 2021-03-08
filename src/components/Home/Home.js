@@ -1,13 +1,11 @@
 import React from 'react';
 import styles from './Home.scss';
 import Creator from '../Creator/Creator.js';
-import List from '../List/ListContainer.js';
+import ListLink from '../ListLink/ListLink';
 import PropTypes from 'prop-types';
 import { settings } from '../../data/dataStore';
-import Search from '../Search/SearchContainer';
 import SearchResult from '../SearchResult/SearchResultContainer';
 import { DragDropContext } from 'react-beautiful-dnd';
-import Container from '../Container/Container';
 
 class Home extends React.Component {
 
@@ -52,17 +50,12 @@ class Home extends React.Component {
         <div className={styles.component}>
           <h1 className={styles.title}>{title}</h1>
           <h2 className={styles.subtitle}>{subtitle}</h2>
-          <Container>
-            <div className={styles.search}>
-              <Search />
-            </div>
-          </Container>
           <div >
             <SearchResult />
           </div>
           <DragDropContext onDragEnd={moveCardHandler}>
             {lists.map(listData => (
-              <List key={listData.id} {...listData} />
+              <ListLink key={listData.id} {...listData} />
             ))}
           </DragDropContext>
           <div className={styles.creator}>
