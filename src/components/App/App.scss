@@ -1,4 +1,4 @@
-@import '../../styles/settings.scss';
+@import "../../styles/settings.scss";
 
 .component {
   padding: $base-size;
@@ -20,11 +20,11 @@
 }
 
 .title + .subtitle {
-  margin-top: (- $base-size * 3);
+  margin-top: (-$base-size * 3);
 }
 
 .creator {
-  width: calc(33% - 20px);
+  width: calc(30% - 12px);
   margin: $base-size auto 0;
 
   input {
@@ -32,10 +32,16 @@
   }
 }
 
-.search{
+.search {
   width: 40%;
 
   input {
     box-shadow: 0 3px 0 rgba(0, 0, 0, 0.3);
+  }
+}
+
+@media (max-width: 767px) {
+  .creator {
+    width: 100%;
   }
 }

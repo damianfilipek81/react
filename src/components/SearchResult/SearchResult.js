@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './SearchResult.scss';
 import ReactHtmlParser from 'react-html-parser';
+import Container from '../Container/Container';
 
 
 const SearchResult = (props) => {
@@ -24,15 +25,17 @@ const SearchResult = (props) => {
   };
 
   return (
-    <div className={styles.component}>
-      {cards.map(cardData => (
-        <a href={'#' + cardData.id} key={cardData.id} className={styles.card} onClick={(event) => highlightClickedCard(cardData.id, event.currentTarget, cards)}>
-          <p className={styles.subtitle}>List: {ReactHtmlParser(cardData.listTitle)}</p>
-          <p className={styles.subtitle}>Column: {cardData.columnTitle}</p>
-          <h3 className={styles.title}>{cardData.title}</h3>
-        </a>
-      ))}
-    </div>
+    <Container>
+      <div className={styles.component}>
+        {cards.map(cardData => (
+          <a href={'#' + cardData.id} key={cardData.id} className={styles.card} onClick={(event) => highlightClickedCard(cardData.id, event.currentTarget, cards)}>
+            <p className={styles.subtitle}>List: {ReactHtmlParser(cardData.listTitle)}</p>
+            <p className={styles.subtitle}>Column: {cardData.columnTitle}</p>
+            <h3 className={styles.title}>{cardData.title}</h3>
+          </a>
+        ))}
+      </div>
+    </Container>
   );
 };
 

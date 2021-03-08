@@ -21,7 +21,7 @@ class App extends React.Component {
   render() {
     const { title, subtitle, lists, addList, moveCard } = this.props;
     const moveCardHandler = result => {
-      if(
+      if (
         //check if dropped to defined context
         result.destination
         &&
@@ -32,7 +32,7 @@ class App extends React.Component {
           //check if container id has changed
           result.destination.droppableId != result.source.droppableId
         )
-      ){
+      ) {
         moveCard({
           id: result.draggableId,
           dest: {
@@ -62,9 +62,9 @@ class App extends React.Component {
               <List key={listData.id} {...listData} />
             ))}
           </DragDropContext>
-        </div>
-        <div className={styles.creator}>
-          <Creator text={settings.listCreatorText} action={addList} />
+          <div className={styles.creator}>
+            <Creator text={settings.listCreatorText} action={addList} />
+          </div>
         </div>
       </main>
     );
