@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import App from './App';
+import Home from './Home';
 import { createActionAddList, getList } from '../../redux/listsRedux';
 import { createAction_moveCard } from '../../redux/cardRedux';
 
@@ -18,4 +18,4 @@ const mapDispatchToProps = (dispatch, props) => ({
   })),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
